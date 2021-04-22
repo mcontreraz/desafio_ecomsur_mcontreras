@@ -29,7 +29,10 @@ for (let i = 0; i < stock.length; i++) {
     "name":json_obj.Title, 
     "desc": json_obj.Plot,
     "price": Math.floor(Math.random() * 20000) + 5000,
-    "img": json_obj.Poster
+    "img": json_obj.Poster,
+    "genre": json_obj.Genre,
+    "actors": json_obj.Actors,
+    "awards": json_obj.Awards
   });
 
 }

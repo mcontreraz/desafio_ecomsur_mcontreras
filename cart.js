@@ -65,6 +65,28 @@ var cart = {
       part.className = "p-desc";
       item.appendChild(part);
 
+      // DIRECTOR
+
+      part = document.createElement("div");
+      part.innerHTML = `<br>Género:<br>${p.genre}<br>` ;
+      part.className = "p-dir";
+      item.appendChild(part);
+
+      // ACTORES
+
+      part = document.createElement("div");
+      part.innerHTML = `<br>Protagonistas:<br>${p.actors}<br>`;
+      part.className = "p-actors";
+      item.appendChild(part);
+
+      // PREMIOS
+
+      part = document.createElement("div");
+      part.innerHTML = `<br>Premios:<br>${p.awards}<br>`;
+      part.className = "p-awards";
+      item.appendChild(part);
+
+
       // PRECIO
       part = document.createElement("div");
       part.innerHTML = "$" + p.price;
@@ -88,7 +110,7 @@ var cart = {
     cart.list();
   },
 
-  // (D) LISTAR ELEMENTOS ACTUALES DEL CARRO
+  // LISTAR ELEMENTOS ACTUALES DEL CARRO
   list: function () {
     // RESET
     cart.hItems.innerHTML = "";
@@ -148,7 +170,7 @@ var cart = {
       // VACIAR
       item = document.createElement("input");
       item.type = "button";
-      item.value = "Empty";
+      item.value = "Vaciar Carro";
       item.addEventListener("click", cart.nuke);
       item.className = "c-empty cart";
       cart.hItems.appendChild(item);
@@ -156,7 +178,7 @@ var cart = {
       // CHECKOUT
       item = document.createElement("input");
       item.type = "button";
-      item.value = "Checkout - " + "$" + total;
+      item.value = "Pagar - " + "$" + total;
       item.addEventListener("click", cart.checkout);
       item.className = "c-checkout cart";
       cart.hItems.appendChild(item);
@@ -192,25 +214,13 @@ var cart = {
     cart.list();
   },
 
-  // (H) CHECKOUT
+  // CHECKOUT
   checkout: function () {
-    // SEND DATA TO SERVER
-    // CHECKS
-    // SEND AN EMAIL
-    // RECORD TO DATABASE
-    // PAYMENT
-    // WHATEVER IS REQUIRED
+    // ACA VA CUALQUIER ACCION QUE SE DESEE HACER PREVIO AL PAGO
     alert("PASARELA DE PAGO");
-
-    /*
-    var data = new FormData();
-    data.append('cart', JSON.stringify(cart.items));
-    data.append('products', JSON.stringify(products));
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "SERVER-SCRIPT");
-    xhr.onload = function(){ ... };
-    xhr.send(data);
-    */
   }
 };
+
+// LISTENER
+
 window.addEventListener("DOMContentLoaded", cart.init);
